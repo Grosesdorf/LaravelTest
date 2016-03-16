@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Illuminate\Database\Eloquent\Model;
 
 class DatabaseSeeder extends Seeder
 {
@@ -11,6 +12,13 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(UserTableSeeder::class);
+
+        // Model::unguard();
+
+        $this->call(UsersTableSeeder::class);
+        $this->command->info('Таблица пользователей заполнена данными!');
+        // $this->call('database\seeds\NewsTableSeeder');
+        // $this->command->info('Таблица новостей заполнена данными!');
+        // $this->call(CommentsTableSeeder::class);
     }
 }

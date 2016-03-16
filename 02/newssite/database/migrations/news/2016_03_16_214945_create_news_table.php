@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateNewsTableAddFieldAuthor extends Migration
+class CreateNewsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,8 +12,12 @@ class CreateNewsTableAddFieldAuthor extends Migration
      */
     public function up()
     {
-        Schema::table('news', function (Blueprint $table) {
-            $table->integer('id_author')->after('text');
+        Schema::create('news', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('title', 100);
+            $table->text('text');
+            $table->integer('id_user');
+            $table->timestamps();
         });
     }
 
@@ -24,8 +28,6 @@ class CreateNewsTableAddFieldAuthor extends Migration
      */
     public function down()
     {
-        Schema::table('news', function (Blueprint $table) {
-            //
-        });
+        Schema::drop('news');
     }
-  }
+}

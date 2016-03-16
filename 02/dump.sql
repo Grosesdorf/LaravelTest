@@ -1,14 +1,18 @@
 -- --------------------------------------------------------
 -- Хост:                         127.0.0.1
--- Версия сервера:               5.5.45 - MySQL Community Server (GPL)
+-- Версия сервера:               5.5.41-log - MySQL Community Server (GPL)
 -- ОС Сервера:                   Win32
--- HeidiSQL Версия:              9.3.0.4984
+-- HeidiSQL Версия:              9.1.0.4867
 -- --------------------------------------------------------
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET NAMES utf8mb4 */;
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+-- Экспортируемые данные не выделены.
+
+-- Экспортируемые данные не выделены.
+
 -- Экспортируемые данные не выделены.
 
 -- Экспортируемые данные не выделены.

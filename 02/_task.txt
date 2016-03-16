@@ -7,3 +7,37 @@
 Комментарии должны добавляться через консольный скрипт (например, php artisan news­comment:create {newsID} ­­comment=”Comment”). 
 
 При проверке этой задачи, будем обращать внимание на: миграции, использование моделей, использование кастомных консольных команд. 
+
+grosesdorf@grosesdorf-PC: /cygdrive/c/OpenServer/domains/LaravelTest/02/newssite
+
+{ newssite } master » php artisan make:model Models/News
+Model created successfully.
+{ newssite } master » php artisan make:model Models/Comment
+Model created successfully.
+{ newssite } master » php artisan make:model Models/User
+Model created successfully.
+
+{ newssite } master » php artisan make:migration --create=users --path=database/migrations/users create_users_table
+Created Migration: 2016_03_16_214918_create_users_table
+{ newssite } master » php artisan make:migration --create=news --path=database/migrations/news create_news_table
+Created Migration: 2016_03_16_214945_create_news_table
+{ newssite } master » php artisan make:migration --create=comments --path=database/migrations/comments create_comments_table
+Created Migration: 2016_03_16_215011_create_comments_table
+
+{ newssite } master » php artisan migrate --path=database/migrations/users                   
+Migrated: 2016_03_16_214918_create_users_table
+{ newssite } master » php artisan migrate --path=database/migrations/news                     
+Migrated: 2016_03_16_214945_create_news_table
+{ newssite } master » php artisan migrate --path=database/migrations/comments                 
+Migrated: 2016_03_16_221353_create_comments_table
+
+{ newssite } master » php artisan make:seed UserTableSeeder                                   
+Seeder created successfully.
+{ newssite } master » php artisan make:seed NewsTableSeeder                                   
+Seeder created successfully.
+{ newssite } master » php artisan make:seed CommentsTableSeeder                               
+Seeder created successfully.
+
+
+
+
