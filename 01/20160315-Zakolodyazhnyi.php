@@ -44,8 +44,8 @@ class AttractGroupCandidate {
         if(is_array($list)){	// проверяем массив ли на входе
       		$avr = array_sum($list) / count($list);	// определяем среднее по массиву(можно использовать foreach)
       		foreach ($list as $value) {
-      			if($value >= $avr && is_numeric($value) && !is_array($value)){	// проверяем на прнадлежность к числу 
-      				$tmpArr[] = $value;                                         // и по условию отбора              
+      			if($value >= $avr && is_numeric($value) && !is_array($value)){	// проверяем на прнадлежность к числу
+      				$tmpArr[] = $value;                                         // и по условию отбора
       			}
       		}
       		return $tmpArr;                                                     // возвращаем перебранный массив
@@ -75,14 +75,14 @@ class AttractGroupCandidate {
     public function task2($income) {
         // TODO
         define ('FIRST_RATE', 500);                 // Определяем константы
-        define ('SECOND_RATE', 750);                // для удобства использования, 
-        define ('THIRD_RATE', 1500);                // если будет необходимость сменить ставки по процентам
-        define ('FIRST_TAX', 0.05);                 // и/или границы вклада
-        define ('SECOND_TAX', 0.1);
-        define ('THIRD_TAX', 0.125);
-        define ('FOURTH_TAX', 0.15);
+        define ('SECOND_RATE', 750);                // для удобства использования,
+        define ('THIRD_RATE', 1500);                // если будет необходимость сменить ставки по процентам и/или границы вклада
+        define ('FIRST_TAX', 5);                    // Для удобства вводим процент, дальше в фун-ях переведом в доли
+        define ('SECOND_TAX', 10);
+        define ('THIRD_TAX', 12.5);
+        define ('FOURTH_TAX', 15);
 
-        if(is_numeric($income) && $income > 0){     // Проверяем на число большее нуля
+        if(is_numeric($income) && !($income < 0)){     // Проверяем на число и не отрицательное
 
             $inc = (float)($income);                    // Никому не верим и явно преобразовываем
             $rate = False;
@@ -90,27 +90,27 @@ class AttractGroupCandidate {
             if((FIRST_RATE < SECOND_RATE) && (SECOND_RATE < THIRD_RATE)){
                 $rate = True;                           // Определяем соответствие границ вклада
             }
-            
+
             function firstRate($income){                 // Рассчитываем если до 1-ой границы
-                return $income * FIRST_TAX;
+                return $income * FIRST_TAX / 100;
             }
             function secondRate($income){                // Рассчитываем если до 2-ой границы
-                return (($income - FIRST_RATE) * SECOND_TAX) + (FIRST_RATE * FIRST_TAX);
+                return (($income - FIRST_RATE) * SECOND_TAX / 100) + firstRate(FIRST_RATE);
             }
             function thirdRate($income){                 // Рассчитываем если до 3-ей границы
-                return (($income - SECOND_RATE) * THIRD_TAX) + ((SECOND_RATE - FIRST_RATE) * SECOND_TAX) + (FIRST_RATE * FIRST_TAX);
+                return (($income - SECOND_RATE) * THIRD_TAX / 100) + secondRate(SECOND_RATE);
             }
             function fourthRate($income){               // Рассчитываем если до 4-ой границы
-                return (($income - THIRD_RATE) * FOURTH_TAX) + ((THIRD_RATE - SECOND_RATE) * THIRD_TAX) + ((SECOND_RATE - FIRST_RATE) * SECOND_TAX) + (FIRST_RATE * FIRST_TAX); 
+                return (($income - THIRD_RATE) * FOURTH_TAX / 100) + thirdRate(THIRD_RATE);
             }
 
             if($inc <= FIRST_RATE && $rate){            // В этом блоке выбираем по какой функции считать
                 return firstRate($inc);
             }
-            elseif($inc <= SECOND_RATE && $inc > FIRST_RATE && $rate){
+            elseif($inc <= SECOND_RATE && $rate){
                 return secondRate($inc);
             }
-            elseif($inc <= THIRD_RATE && $inc > SECOND_RATE && $rate){
+            elseif($inc <= THIRD_RATE && $rate){
                 return thirdRate($inc);
             }
             elseif ($inc > THIRD_RATE && $rate) {
@@ -186,11 +186,11 @@ class AttractGroupCandidate {
     public function task4($matrix) {
         // TODO
         $countMatrix = count($matrix);                  // определяем размерность матрицы, чтоб в цыклах не дергать постоянно
-        
-        for($i = 0; $i < $countMatrix; $i++){           
+
+        for($i = 0; $i < $countMatrix; $i++){
             $k = count($matrix[$i]);                    // определяем размерность вложенного массива
             if(($i + 1) % 2 != 0){                      // определяем четность индекса
-                for($y = 0; $y <= $k - 1; $y++) {       // если нечетный 
+                for($y = 0; $y <= $k - 1; $y++) {       // если нечетный
                     $tmpMatrix[] = $matrix[$i][$y];     // заполняем временный массив слева направо
                 }
             }
