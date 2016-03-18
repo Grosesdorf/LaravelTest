@@ -38,6 +38,18 @@ Seeder created successfully.
 { newssite } master » php artisan make:seed CommentsTableSeeder                               
 Seeder created successfully.
 
+{ newssite } master » composer dump-autoload 
+
+{ newssite } master » php artisan db:seed                                                       
+Seeded: UsersTableSeeder
+Таблица пользователей заполнена данными!
+Seeded: NewsTableSeeder
+Таблица новостей заполнена данными!
+Seeded: CommentsTableSeeder
+Таблица комментариев заполнена данными!
+
+
+
 
 
 

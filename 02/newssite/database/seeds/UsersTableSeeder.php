@@ -12,20 +12,22 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
+    	DB::table('users')->delete();
+
         User::create(
-                	['f_name'      => 'This',
-                     'l_name'     =>  'gmail.com',
-                     'email'  =>  'qw3@qw.com']
+                	['f_name'   => 'User01',
+                     'l_name'   =>  'Xy',
+                     'email'  	=>  'user01gmail.com']
                     );
         User::create(
-                	['f_name'      => 'This',
-                     'l_name'     =>  'gmail.com',
-                     'email'  =>  'qw4@qw.com']
+                	['f_name'   => 'User02',
+                     'l_name'   =>  'Zs',
+                     'email'  	=>  'user02gmail.com']
                     );
         User::create(
-                	['f_name'      => 'This',
-                     'l_name'     =>  'gmail.com',
-                     'email'  =>  'qw5@qw.com']
+                	['f_name'   => 'User03',
+                     'l_name'   =>  'Us',
+                     'email'  	=>  'user03gmail.com']
                     );
     }
 }

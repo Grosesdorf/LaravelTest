@@ -17,8 +17,9 @@ class DatabaseSeeder extends Seeder
 
         $this->call(UsersTableSeeder::class);
         $this->command->info('Таблица пользователей заполнена данными!');
-        // $this->call('database\seeds\NewsTableSeeder');
-        // $this->command->info('Таблица новостей заполнена данными!');
-        // $this->call(CommentsTableSeeder::class);
+        $this->call(NewsTableSeeder::class);
+        $this->command->info('Таблица новостей заполнена данными!');
+        $this->call(CommentsTableSeeder::class);
+        $this->command->info('Таблица комментариев заполнена данными!');
     }
 }
