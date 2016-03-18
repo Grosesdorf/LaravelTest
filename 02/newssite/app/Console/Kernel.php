@@ -16,6 +16,7 @@ class Kernel extends ConsoleKernel
         // Commands\Inspire::class,
         Commands\NewsGet::class,
         Commands\NewsCommentCreate::class,
+        Commands\NewsCommentRemove::class,
     ];
 
     /**

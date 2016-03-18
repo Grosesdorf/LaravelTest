@@ -42,13 +42,12 @@ class NewsCommentCreate extends Command
         $idNews = $this->ask('Which is an ID news?');
         $comment = $this->ask('Enter here your comment...');
 
-        $newComment = new Comment;
-        $newComment->id_user = $idUser;
-        $newComment->id_news = $idNews;
-        $newComment->comment = $comment;
+        $newComment = new Comment();
+        $newComment->createComment($idUser, $idNews, $comment);
         $newComment->save();
+        
         $this->info('Created a one comment...');
         
-        dd($idUser, $idNews, $comment);
+        // dd($idUser, $idNews, $comment);
     }
 }

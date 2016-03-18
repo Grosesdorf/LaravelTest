@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Models\Comment;
 use Illuminate\Console\Command;
 
 class NewsCommentRemove extends Command
@@ -18,7 +19,7 @@ class NewsCommentRemove extends Command
      *
      * @var string
      */
-    protected $description = 'Command description';
+    protected $description = 'Remove comment by ID';
 
     /**
      * Create a new command instance.
@@ -37,6 +38,9 @@ class NewsCommentRemove extends Command
      */
     public function handle()
     {
-        //
+        $idComm = $this->argument('idComm');
+        Comment::destroy($idComm);
+                
+        $this->info('Remove a one comment...');
     }
 }

@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class News extends Model{
     protected $table = 'news';
-    protected $countNews = DB::table('news')->count();
+    // protected $countNews = DB::table('news')->count();
 
     // public function getAllNews(){
     	//

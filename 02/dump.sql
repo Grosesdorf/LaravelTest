@@ -20,23 +20,25 @@ CREATE TABLE IF NOT EXISTS `comments` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8;
 
--- Дамп данных таблицы laravelAttractGr.comments: ~0 rows (приблизительно)
+-- Дамп данных таблицы laravelAttractGr.comments: ~11 rows (приблизительно)
 DELETE FROM `comments`;
 /*!40000 ALTER TABLE `comments` DISABLE KEYS */;
 INSERT INTO `comments` (`id`, `comment`, `id_user`, `id_news`, `active`, `created_at`, `updated_at`) VALUES
 	(11, 'Very cool comment 01', 10, 1, 0, '2016-03-17 21:14:13', '2016-03-17 21:14:13'),
 	(12, 'Very cool comment 02', 11, 1, 0, '2016-03-17 21:14:13', '2016-03-17 21:14:13'),
 	(13, 'Very cool comment 03', 10, 1, 0, '2016-03-17 21:14:13', '2016-03-17 21:14:13'),
-	(14, 'Very cool comment 04', 11, 1, 0, '2016-03-17 21:14:13', '2016-03-17 21:14:13'),
 	(15, 'Very cool comment 05', 12, 1, 0, '2016-03-17 21:14:13', '2016-03-17 21:14:13'),
 	(16, 'Very cool comment 06', 12, 2, 0, '2016-03-17 21:14:13', '2016-03-17 21:14:13'),
 	(17, 'Very cool comment 07', 10, 2, 0, '2016-03-17 21:14:13', '2016-03-17 21:14:13'),
 	(18, 'Very cool comment 08', 12, 4, 0, '2016-03-17 21:14:13', '2016-03-17 21:14:13'),
 	(19, 'Very cool comment 09', 11, 5, 0, '2016-03-17 21:14:13', '2016-03-17 21:14:13'),
 	(20, 'Very cool comment 10', 10, 5, 0, '2016-03-17 21:14:13', '2016-03-17 21:14:13'),
-	(21, 'First!!!', 10, 35, 0, '2016-03-18 01:50:53', '2016-03-18 01:50:53');
+	(21, 'First!!!', 10, 35, 0, '2016-03-18 01:50:53', '2016-03-18 01:50:53'),
+	(22, 'Second!!!', 11, 34, 0, '2016-03-18 09:17:42', '2016-03-18 09:17:42'),
+	(23, 'Third!!!', 12, 32, 0, '2016-03-18 09:22:44', '2016-03-18 09:22:44'),
+	(24, 'WEWWE', 2, 23, 0, '2016-03-18 09:32:00', '2016-03-18 09:32:00');
 /*!40000 ALTER TABLE `comments` ENABLE KEYS */;
 
 
@@ -46,7 +48,7 @@ CREATE TABLE IF NOT EXISTS `migrations` (
   `batch` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Дамп данных таблицы laravelAttractGr.migrations: ~3 rows (приблизительно)
+-- Дамп данных таблицы laravelAttractGr.migrations: ~4 rows (приблизительно)
 DELETE FROM `migrations`;
 /*!40000 ALTER TABLE `migrations` DISABLE KEYS */;
 INSERT INTO `migrations` (`migration`, `batch`) VALUES
@@ -68,7 +70,7 @@ CREATE TABLE IF NOT EXISTS `news` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=utf8;
 
--- Дамп данных таблицы laravelAttractGr.news: ~0 rows (приблизительно)
+-- Дамп данных таблицы laravelAttractGr.news: ~5 rows (приблизительно)
 DELETE FROM `news`;
 /*!40000 ALTER TABLE `news` DISABLE KEYS */;
 INSERT INTO `news` (`id`, `title`, `text`, `id_user`, `created_at`, `updated_at`) VALUES
